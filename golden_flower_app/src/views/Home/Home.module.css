@@ -1,0 +1,97 @@
+.box{
+    background: white;
+}
+.guide{
+    width: 100%;
+    height: 0.7rem;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+}
+.guide>div{
+    margin: auto 0;
+}
+.guide img{
+    width: 1.2rem;
+    height: 0.4rem;
+}
+.search{
+    width: 65%;
+    height: 0.4rem;
+    background: #F3F3F3;
+    color: #757575;
+    font-size: 0.18rem;
+    border-radius:0.2rem;
+    line-height: 0.4rem;
+    padding: 0 25px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.login{
+    font-size: 0.18rem;
+    color: #ff900f;
+}
+.box .wing{
+    margin-left: 0px; 
+    margin-right: 0px;
+}
+.am-wingblank{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.guidebox{
+    width: 100%;
+    height: 2.6rem;
+    background: pink;
+    font-size: 0.2rem;
+}
+.guidebox >ul{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    /* justify-content:space-around */
+}
+.guidebox div{
+    text-align: center;
+}
+.guidebox >ul>li{
+    width: 25%;
+}
+.guidebox img{
+    width: 0.7rem;
+    height: 0.7rem;
+}
+.gl{
+    margin: 10px 0;
+    padding: 10px 0;
+    width: 100%;
+    color:#898989;
+    background: #EBEBEB;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 500;
+}
+.travelsbox{
+    width: 100%;
+    padding: 0 15px;
+}
+.travelitem{
+    width: 100%;
+
+}
+.infobox{
+    display: flex;
+    width: 100%;
+
+}
+.infobox img{
+    width: 1.87rem;
+    height: 1.3rem;
+}
+.title{
+    height: ;
+    font-size: 0.27rem;
+    padding-right: 1rem;
+}
