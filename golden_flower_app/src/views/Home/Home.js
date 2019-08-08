@@ -3,15 +3,30 @@ import { withRouter } from "react-router-dom";
 import style from "./Home.module.css";
 import { Icon } from 'antd-mobile';
 import { Carousel, WingBlank } from 'antd-mobile';
+import axios from "../../Axios/Axios";
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
             data: ['https://p3-q.mafengwo.net/s14/M00/93/DE/wKgE2l1Kv_SAZ-pvAAN-D4UmQ5k092.jpg?imageMogr2%2Fthumbnail%2F%21750x422r%2Fgravity%2FCenter%2Fcrop%2F%21750x422%2Fquality%2F90', 'https://n4-q.mafengwo.net/s14/M00/30/6E/wKgE2l1KMW2AXcG-AAOVbnycn4c614.jpg?imageMogr2%2Fthumbnail%2F%21750x422r%2Fgravity%2FCenter%2Fcrop%2F%21750x422%2Fquality%2F90', 'https://p1-q.mafengwo.net/s14/M00/9D/F8/wKgE2l1I1RyAHat9AAU9bRqQ58o953.jpg?imageMogr2%2Fthumbnail%2F%21750x422r%2Fgravity%2FCenter%2Fcrop%2F%21750x422%2Fquality%2F90'],
+            page: 1,
+            pagenum: 8,
+            tavelsdata: []
         }
     }
     componentDidMount() {
+        axios.get("/travels/getTravels", {
+            params: {
+                page: this.state.page,
+                pagenum: this.state.pagenum
+            }
+        }
 
+        ).then((res) => {
+            console.log(res.data)
+        }).catch(err => {
+            console.log(err)
+        })
     }
     // getdata(page) {
     //     axios.get("/get", {
@@ -118,10 +133,10 @@ class Home extends Component {
                         <div className={style.infobox}>
                             <div><img src="https://n4-q.mafengwo.net/s11/M00/7D/CB/wKgBEFthhnSAOJdtAAMfnkYoOE843.jpeg?imageMogr2%2Fthumbnail%2F%21288x218r%2Fgravity%2FCenter%2Fcrop%2F%21288x218%2Fquality%2F90" alt="" /></div>
                             <div>
-                                <div>这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介</div>
-                                <div>
+                                <div className={style.info}>这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介<span className={style.txt}></span></div>
+                                <div className={style.publisher}>
                                     <div>11111浏览</div>
-                                    <div>谁发布的</div>
+                                    <div>Post by谁发布的</div>
                                 </div>
                             </div>
                         </div>

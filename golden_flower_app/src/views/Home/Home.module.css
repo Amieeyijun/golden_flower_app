@@ -75,11 +75,11 @@
 }
 .travelsbox{
     width: 100%;
-    padding: 0 15px;
+    box-sizing: border-box;
+    padding: 0 0.22rem;
 }
 .travelitem{
     width: 100%;
-
 }
 .infobox{
     display: flex;
@@ -91,7 +91,36 @@
     height: 1.3rem;
 }
 .title{
-    height: ;
+    height: 0.7rem;
     font-size: 0.27rem;
-    padding-right: 1rem;
+    padding-right: 0.6rem;
+    background: pink;
+    line-height: 0.35rem;
+    margin: 10px 0;
+}
+.info{
+    height: 0.9rem;
+    padding-left: 15px;
+    box-sizing: border-box;
+    background: pink;
+    overflow: hidden;
+    font-size: 0.2rem;
+    color: #999;
+    line-height: 0.3rem;
+    /* width: 200px; */
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.publisher{
+display: flex;
+justify-content: space-between;
+font-size: 0.18rem;
+color: #999;
+padding: 0 15px;
+height: 0.4rem;
+line-height: 0.4rem;
 }
