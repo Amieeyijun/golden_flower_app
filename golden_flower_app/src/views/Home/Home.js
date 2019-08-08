@@ -16,6 +16,10 @@ class Home extends Component {
         }
         this.getdata = this.getdata.bind(this);
         this.totop = this.totop.bind(this);
+         this.fn=this.fn.bind(this)
+    }
+    fn(){
+        this.props.history.push('/travel')
     }
     componentDidMount() {
         let page = this.state.page;
@@ -128,7 +132,7 @@ class Home extends Component {
                             </div>
                         </li>
                         <li>
-                            <div>
+                            <div onClick={this.fn}>
                                 <img src={require("../../imgs/YJ.png")} alt="" />
                                 <p>看游记</p>
                             </div>
