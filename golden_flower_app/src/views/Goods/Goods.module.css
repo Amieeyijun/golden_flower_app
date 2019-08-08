@@ -1,0 +1,71 @@
+.mygoods{
+    width: 100%;
+}
+.mygoods .daohang{
+    width: 100%;
+    height: 1rem;
+    display: flex;
+    justify-content: space-between
+}
+.mygoods .daohang img{
+    width: 30%;
+    height: 80%;
+    margin: 0.1rem;
+}
+.mygoods .daohang div{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center
+}
+.mygoods .daohang div .a1{
+    display: block;
+    height: 0.4rem;
+    font-size: 0.3rem;
+}
+.mygoods .daohang div a{
+    color: #F29406
+}
+.mygoods .daohang div a svg{
+    margin-left: 0.2rem;
+}
+.mygoods .menu{
+    width: 100%;
+    height: 0.8rem;
+    background-color: #F29406;
+    display: flex;
+    justify-content: space-around
+}
+.mygoods .menu>div{
+    width: 25%;
+    height: 100%;
+    line-height: 0.8rem;
+    text-align: center;
+    font-size: 0.3rem
+}
+.mygoods .lbt{
+    width: 100%;
+    height: 1rem;
+    display: flex;
+    justify-content: space-around
+}
+.mygoods .lbt img{
+    width: 22%;
+    height: 80%;
+    margin-top: 0.25rem
+}
+.mygoods .lbt .tlbt{
+    width: 60%;
+    height: 80%;
+    margin-top: 0.13rem
+}
+.mygoods .lbt>a{
+    line-height: 1rem
+}
+.mygoods .bodyAll{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

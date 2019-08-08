@@ -1,5 +1,9 @@
 import Home from './views/Home/Home';
-import Travel from './views/Travel/Travel'
+import Travel from './views/Travel/Travel';
+import Goods from './views/Goods/Goods';
+import Goodsinfo from './views/Goods/Goodsinfo';
+import Search from './views/Search/Search';
+import Admin from './views/Admin/Admin';
 const routes = [
     {
         path: '/',
@@ -10,14 +14,22 @@ const routes = [
         path: '/travel',
         component: Travel
     },
-    // {
-    //     path: '/goods',
-    //     component: Goods
-    // },
-    // {
-    //     path: '/admin',
-    //     component: Admin,
-    // },
+    {
+        path: '/goods',
+        component: Goods
+    },
+    {
+        path: '/goodsinfo',
+        component: Goodsinfo
+    },
+    {
+        path: '/search',
+        component: Search
+    },
+    {
+        path: '/admin',
+        component: Admin
+    }
     // {
     //     path: '/login',
     //     component: Login

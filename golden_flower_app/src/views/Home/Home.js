@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from "react-router-dom";
+import { withRouter,Link } from "react-router-dom";
 import style from "./Home.module.css";
 import { Icon } from 'antd-mobile';
 import { Carousel, WingBlank } from 'antd-mobile';
@@ -16,10 +16,14 @@ class Home extends Component {
         }
         this.getdata = this.getdata.bind(this);
         this.totop = this.totop.bind(this);
-         this.fn=this.fn.bind(this)
+        this.fn = this.fn.bind(this)
+        this.fm = this.fm.bind(this)
     }
-    fn(){
+    fn() {
         this.props.history.push('/travel')
+    }
+    fm() {
+        this.props.history.push('/goods')
     }
     componentDidMount() {
         let page = this.state.page;
@@ -35,7 +39,12 @@ class Home extends Component {
 
     }
     componentWillUnmount() {
-        window.removeEventListener('scroll', this.handleScroll.bind(this));
+        // window.removeEventListener('scroll', this.handleScroll.bind(this));
+        clearTimeout(this.timeouter)
+        this.setState = (state, callback) => {
+            return
+        }
+
     }
     scrollHandler() {
 
@@ -67,14 +76,14 @@ class Home extends Component {
         // })
     }
     getdata(page, pagenum) {
-        console.log(22222)
+        // console.log(22222)
         axios.get("/travels/getTravels", {
             params: {
                 page: page,
                 pagenum: pagenum
             }
         }).then((res) => {
-            console.log(res.data)
+            // console.log(res.data)
             let mydata = this.state.tavelsdata.concat(res.data);
             this.setState({
                 tavelsdata: mydata
@@ -98,7 +107,7 @@ class Home extends Component {
                         <Icon type="search" size="s" />
                     </div>
                     <div className={style.login}>
-                        登录
+                        <Link to='/admin'>登录</Link>
                         </div>
                 </div>
 
@@ -149,22 +158,30 @@ class Home extends Component {
                                 <p>结伴</p>
                             </div>
                         </li>
-                        <li><div>
-                            <img src={require("../../imgs/JD.png")} alt="" />
-                            <p>酒店</p>
-                        </div></li>
-                        <li><div>
-                            <img src={require("../../imgs/LX.png")} alt="" />
-                            <p>去旅行</p>
-                        </div></li>
-                        <li><div>
-                            <img src={require("../../imgs/JP.png")} alt="" />
-                            <p>机票</p>
-                        </div></li>
-                        <li><div>
-                            <img src={require("../../imgs/HD.png")} alt="" />
-                            <p>当地玩乐</p>
-                        </div></li>
+                        <li>
+                            <div>
+                                <img src={require("../../imgs/JD.png")} alt="" />
+                                <p>酒店</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div onClick={this.fm}>
+                                <img src={require("../../imgs/LX.png")} alt="" />
+                                <p>去旅行</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src={require("../../imgs/JP.png")} alt="" />
+                                <p>机票</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src={require("../../imgs/HD.png")} alt="" />
+                                <p>当地玩乐</p>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 <div className={style.gl}>

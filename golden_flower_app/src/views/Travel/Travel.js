@@ -9,11 +9,15 @@ class Travel extends Component {
         this.state={
             ptravel:[]
         }
-        this.fm=this.fm.bind(this)
+        this.fm=this.fm.bind(this);
+        this.fx = this.fx.bind(this)
     }
 
     fm(){
         this.props.history.push('/')
+    }
+    fx(){
+        this.props.history.push('/search')
     }
     componentDidMount(){
         axios.get('/travels/getTravelAll')
@@ -34,7 +38,7 @@ class Travel extends Component {
                     <img src={require('../../imgs/LOGO.png')} alt="" />
                     <div>
                         <a href="javasript:void(0)" className={style.a1} onClick={this.fm}>官网首页</a>
-                        <a href=""><Icon type="search" size="s" /></a>
+                        <a href="javasript:void(0)" onClick={this.fx}><Icon type="search" size="s" /></a>
                     </div>
                 </div>
 

@@ -1,0 +1,38 @@
+.mygoods {
+    width: 50%;
+    height: 4rem;
+    margin: 0.2rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mygoods img {
+    width: 90%;
+    height: 60%;
+}
+
+.mygoods div {
+    width: 100%;
+    height: 0.7rem;
+    font-size: 0.3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.mygoods span{
+    color: #F29406;
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-top: 0.2rem
+}
+.mygoods span b{
+    color: #666;
+    opacity: 0.5;
+    font-weight: 100;
+    font-size: 0.22rem
+}

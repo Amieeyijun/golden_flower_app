@@ -31,7 +31,9 @@
 }
 .login{
     font-size: 0.18rem;
-    color: #ff900f;
+}
+.login a{
+    color: #ff900f
 }
 .box .wing{
     margin-left: 0px; 
