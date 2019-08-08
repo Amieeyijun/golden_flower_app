@@ -1,14 +1,15 @@
-import Home from './views/Home/Home'
+import Home from './views/Home/Home';
+import Travel from './views/Travel/Travel'
 const routes = [
     {
         path: '/',
         component: Home,
         exact: true
-    }
-    // {
-    //     path: '/travel',
-    //     component: Travel
-    // },
+    },
+    {
+        path: '/travel',
+        component: Travel
+    },
     // {
     //     path: '/goods',
     //     component: Goods

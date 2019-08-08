@@ -20,9 +20,22 @@ router.post("/addTravels", (req, res) => {
     });
 })
 router.get("/getTravels", (req, res) => {
-    let pagenum = req.query.pagenum
-    let start = (req.query.page - 1) * pagenum
-    let sql = 'select * from travels limit ?,?';
+    let sql = `
+        select * from travels limit 0,6;
+        select * from travels limit 6,6;
+        select * from travels limit 12,6`
+        ;
+    mydb.query(sql, (err, result) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        res.send(result)
+    });
+})
+router.get("/getTravelAll", (req, res) => {
+    let sql = `
+        select * from travels where 1`;
     mydb.query(sql, (err, result) => {
         if (err) {
             console.log(err);

@@ -1,0 +1,43 @@
+.Mytravel{
+    width: 100%;
+    height: 100%;
+    margin: 0.2rem auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between
+}
+a{
+    color:black
+}
+.Mytravel>div{
+    width: 50%;
+    height: 100%;
+}
+.Mytravel>img{
+    width: 50%;
+    height: 80%;
+    margin-top: 0.34rem;
+}
+.Mytravel>div h3{
+    margin-left: 0.1rem
+}
+.Mytravel .people{
+    margin-top: 0.6rem;
+    font-size: 0.24rem;
+    margin-left: 0.1rem
+}
+.Mytravel .people span{
+    color: #F29406
+}
+.Mytravel .talkto{
+    width: 100%;
+    height: 15%;
+    margin-top: 0.1rem;
+
+}
+.Mytravel .talkto img{
+    width: 0.2rem;
+    height: 0.2rem;
+    margin-right: 0.1rem;
+    margin-left: 0.1rem
+}
