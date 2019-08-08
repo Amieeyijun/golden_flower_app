@@ -10,33 +10,75 @@ class Home extends Component {
         this.state = {
             data: ['https://p3-q.mafengwo.net/s14/M00/93/DE/wKgE2l1Kv_SAZ-pvAAN-D4UmQ5k092.jpg?imageMogr2%2Fthumbnail%2F%21750x422r%2Fgravity%2FCenter%2Fcrop%2F%21750x422%2Fquality%2F90', 'https://n4-q.mafengwo.net/s14/M00/30/6E/wKgE2l1KMW2AXcG-AAOVbnycn4c614.jpg?imageMogr2%2Fthumbnail%2F%21750x422r%2Fgravity%2FCenter%2Fcrop%2F%21750x422%2Fquality%2F90', 'https://p1-q.mafengwo.net/s14/M00/9D/F8/wKgE2l1I1RyAHat9AAU9bRqQ58o953.jpg?imageMogr2%2Fthumbnail%2F%21750x422r%2Fgravity%2FCenter%2Fcrop%2F%21750x422%2Fquality%2F90'],
             page: 1,
-            pagenum: 8,
-            tavelsdata: []
+            pagenum: 7,
+            tavelsdata: [],
+            block: "none"
         }
+        this.getdata = this.getdata.bind(this);
+        this.totop = this.totop.bind(this);
     }
     componentDidMount() {
-        axios.get("/travels/getTravels", {
-            params: {
-                page: this.state.page,
-                pagenum: this.state.pagenum
-            }
+        let page = this.state.page;
+        let pagenum = this.state.pagenum;
+        this.getdata(page, pagenum);
+        window.addEventListener('scroll', this.scrollHandler.bind(this));
+
+        window.onbeforeunload = function () {
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+
         }
 
-        ).then((res) => {
+    }
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll.bind(this));
+    }
+    scrollHandler() {
+
+        let clientheight = document.body.clientHeight;
+        let scolltop = document.documentElement.scrollTop || document.body.scrollTop
+        let mintop = clientheight - scolltop;
+        if (scolltop >= 200) {
+            this.setState({
+                block: "block"
+            })
+        } else {
+            this.setState({
+                block: "none"
+            })
+        }
+        if (mintop <= 800) {
+            var mypage = this.state.page + 1
+            this.setState({
+                page: mypage
+            })
+        }
+        this.getdata(mypage, this.state.pagenum);
+    }
+    totop() {
+        // console.log(document.documentElement.scrollTop)
+        document.documentElement.scrollTop = 0;
+        // this.setState({
+        //     block: "none"
+        // })
+    }
+    getdata(page, pagenum) {
+        console.log(22222)
+        axios.get("/travels/getTravels", {
+            params: {
+                page: page,
+                pagenum: pagenum
+            }
+        }).then((res) => {
             console.log(res.data)
+            let mydata = this.state.tavelsdata.concat(res.data);
+            this.setState({
+                tavelsdata: mydata
+            })
         }).catch(err => {
             console.log(err)
         })
     }
-    // getdata(page) {
-    //     axios.get("/get", {
-    //         params: {
-    //             page:page
-    //         }
-    //     })
-    // }
-    // s limit?,?
-    // [(page-1)*paganum,pagenum]
     render() {
         return (
             <div className={style.box}>
@@ -126,24 +168,35 @@ class Home extends Component {
                     <span>---- 推 荐 攻 略 ---- </span>
                 </div>
                 <div className={style.travelsbox}>
-                    <div className={style.travelitem}>
-                        <div className={style.title}>
-                            这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题
-                        </div>
-                        <div className={style.infobox}>
-                            <div><img src="https://n4-q.mafengwo.net/s11/M00/7D/CB/wKgBEFthhnSAOJdtAAMfnkYoOE843.jpeg?imageMogr2%2Fthumbnail%2F%21288x218r%2Fgravity%2FCenter%2Fcrop%2F%21288x218%2Fquality%2F90" alt="" /></div>
-                            <div>
-                                <div className={style.info}>这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介这是简介<span className={style.txt}></span></div>
-                                <div className={style.publisher}>
-                                    <div>11111浏览</div>
-                                    <div>Post by谁发布的</div>
+                    {
+                        this.state.tavelsdata.map((item, index) => {
+                            return (
+                                <div className={style.travelitem} key={index}>
+                                    <div className={style.title}>
+                                        {item.title}
+                                    </div>
+                                    <div className={style.infobox}>
+                                        <div><img src={item.img} alt="" /></div>
+                                        <div>
+                                            <div className={style.info}>{item.info}<span className={style.txt}></span>
+                                            </div>
+                                            <div className={style.publisher}>
+                                                <div>11111浏览</div>
+                                                <div>By {item.publisher}</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            )
+                        })
+                    }
 
                 </div>
+                <div className={style.totop} style={{ display: this.state.block }} onClick={this.totop}>
+                    <Icon type="up" size="m" />
+                </div>
             </div>
+
         );
     }
 }
