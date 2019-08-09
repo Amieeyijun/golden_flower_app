@@ -1,71 +1,176 @@
-.mygoods{
+.mygoods {
     width: 100%;
 }
-.mygoods .daohang{
+
+.mygoods .daohang {
     width: 100%;
     height: 1rem;
     display: flex;
     justify-content: space-between
 }
-.mygoods .daohang img{
+
+.mygoods .daohang img {
     width: 30%;
     height: 80%;
     margin: 0.1rem;
 }
-.mygoods .daohang div{
+
+.mygoods .daohang div {
     width: 30%;
     height: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center
 }
-.mygoods .daohang div .a1{
+
+.mygoods .daohang div .a1 {
     display: block;
     height: 0.4rem;
     font-size: 0.3rem;
 }
-.mygoods .daohang div a{
+
+.mygoods .daohang div a {
     color: #F29406
 }
-.mygoods .daohang div a svg{
+
+.mygoods .daohang div a svg {
     margin-left: 0.2rem;
 }
-.mygoods .menu{
+
+.mygoods .menu {
     width: 100%;
     height: 0.8rem;
+    color: white;
     background-color: #F29406;
     display: flex;
     justify-content: space-around
 }
-.mygoods .menu>div{
+
+.mygoods .menu>div {
     width: 25%;
     height: 100%;
     line-height: 0.8rem;
     text-align: center;
     font-size: 0.3rem
 }
-.mygoods .lbt{
+
+.mygoods .lbt {
     width: 100%;
     height: 1rem;
     display: flex;
     justify-content: space-around
 }
-.mygoods .lbt img{
+
+.mygoods .lbt img {
     width: 22%;
     height: 80%;
     margin-top: 0.25rem
 }
-.mygoods .lbt .tlbt{
+
+.mygoods .lbt .tlbt {
     width: 60%;
     height: 80%;
     margin-top: 0.13rem
 }
-.mygoods .lbt>a{
+
+.mygoods .lbt>a {
     line-height: 1rem
 }
-.mygoods .bodyAll{
+
+.mygoods .bodyAll {
     width: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.mygoods .selling {
+    width: 100%;
+    height: 1.8rem;
+    position: relative;
+}
+
+.mygoods .selling img {
+    width: 100%;
+    height: 100%;
+}
+
+.mygoods .selling div {
+    position: absolute;
+    left: 41%;
+    top: 38%;
+    color: white;
+    font-size: .4rem;
+}
+
+.mygoods .scoll {
+    display: -webkit-box;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.mygoods .scoll .slide {
+    width: 2rem;
+    height: 2.82rem;
+    margin: 0.2rem 0.2rem;
+    border: 1px solid rgba(102, 102, 102, 0.1)
+}
+
+.scoll::-webkit-scrollbar {
+    display: none;
+    /*隐鲹滚动条*/
+}
+
+.mygoods .scoll .slide img {
+    width: 100%;
+    height: 48%;
+}
+
+.mygoods .scoll .slide>div {
+    white-space: normal;
+    line-height: 1.2em;
+    padding: .186rem 0 0;
+    margin-bottom: .2rem;
+    font-size: .1rem;
+    color: #111;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mygoods .scoll .slide p {
+    padding: 0 0.3rem;
+    margin: 0 -0.32rem;
+    line-height: 2em;
+    font-size: .25rem;
+    color: #696969;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    text-align: center
+}
+
+.mygoods .scoll .slide p::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: .32rem;
+    right: .32rem;
+    border-top: 1px solid #e5e5e5;
+}
+
+.mygoods .scoll .slide p em {
+    font-size: .32rem;
+    color: #ff7800;
+    font-style: normal;
+}
+
+.mygoods .scoll .slide p strong {
+    font-size: .32rem;
+    color: #ff7800;
+    font-weight: normal;
+    margin-right: .106rem;
 }

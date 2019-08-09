@@ -1,0 +1,31 @@
+.goodsinfo{
+    width: 100%;
+}
+.goodsinfo h3{
+    text-align: center
+}
+.goodsinfo .lbt{
+    margin: 0;
+    padding: 0;
+}
+.goodsinfo .dao{
+    width: 100%;
+    height: 1rem;
+    display: flex;
+    justify-content: space-around
+}
+.goodsinfo .dao div{
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    line-height: 1rem;
+}
+.goodsinfo .dao div:first-of-type{
+    width: 15%;
+    border-bottom: 1px solid yellowgreen
+}
+.goodsinfo .body{
+    width: 100%;
+    height: 8.5rem;
+    background-color: rgba(102, 102, 102, 0.1)
+}
