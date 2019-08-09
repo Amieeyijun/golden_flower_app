@@ -31,7 +31,7 @@ class Home extends Component {
         this.getdata(page, pagenum);
         window.addEventListener('scroll', this.scrollHandler.bind(this));
 
-        window.onbeforeunload = function () {
+        window.reload = function () {
             document.documentElement.scrollTop = 0;
             document.body.scrollTop = 0;
 
@@ -39,7 +39,7 @@ class Home extends Component {
 
     }
     componentWillUnmount() {
-        // window.removeEventListener('scroll', this.handleScroll.bind(this));
+         window.removeEventListener('scroll', this.handleScroll.bind(this));
         clearTimeout(this.timeouter)
         this.setState = (state, callback) => {
             return
@@ -69,21 +69,16 @@ class Home extends Component {
         this.getdata(mypage, this.state.pagenum);
     }
     totop() {
-        // console.log(document.documentElement.scrollTop)
         document.documentElement.scrollTop = 0;
-        // this.setState({
-        //     block: "none"
-        // })
+
     }
     getdata(page, pagenum) {
-        // console.log(22222)
         axios.get("/travels/getTravels", {
             params: {
                 page: page,
                 pagenum: pagenum
             }
         }).then((res) => {
-            // console.log(res.data)
             let mydata = this.state.tavelsdata.concat(res.data);
             this.setState({
                 tavelsdata: mydata
